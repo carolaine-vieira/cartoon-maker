@@ -10,11 +10,11 @@ html(lang="en")
     #main 
       aside 
         span.title Add
-        ul           
+        ul#add-elements-link          
           li
             a#add-page Page
           li
-            a Background 
+            a#add-background Background 
           li
             a Object
           li
@@ -23,16 +23,34 @@ html(lang="en")
             a Divider
 
         span.title Export as
-        ul           
+        ul#export-links        
           li
             a#export Print
           li
             a#export Image
 
       #editor 
-        .editor-container 
-          .add-content 
-            a.add-elements Add content
+        .editor-container#initial-editor
+          span.editor-label Page 1
+          //- .add-content 
+          //-   a.add-elements Add content
+
+          #comic
+            .comic-container 
+              .box lorem
+
+            .comic-container 
+              .box lorem
+              .box lorem
+              .box lorem
+
+            .comic-container 
+              .box lorem
+              .box lorem
+      
+      #modal         
+        .modal-box Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi quis suscipit deleniti quaerat deserunt eum corrupti quibusdam maxime aspernatur! Sequi reprehenderit aut velit cumque illum amet voluptate beatae veniam non!
+          a.close-button X
         
   script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
   script(type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")

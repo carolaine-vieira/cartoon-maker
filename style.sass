@@ -4,7 +4,7 @@
   box-sizing: border-box
 
 body
-  background: red
+  background: #eee
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 
   a
@@ -15,9 +15,13 @@ body
     min-height: 100vh
 
     aside
+      position: fixed
       flex: 1
       background: #222
       padding: 2%
+      height: 100%
+      width: 25%
+      overflow-y: auto
 
       span.title
         color: #888
@@ -56,30 +60,88 @@ body
           margin: 3px 0 0 0
 
     #editor
+      margin-left: 25%
       flex: 3
-      background: #eee
 
       .editor-container
         background: #fff
         box-shadow: 0 5px 5px #dfdfdf
-        width: 70vh
-        height: 100vh
-        margin: 30px auto
+        width: 85%
+        height: 120%
+        margin: 60px auto
         padding: 5%
         justify-content: center
-
-      .add-content
-        height: 100%
+        position: relative
         display: flex
-        align-items: center
-        text-align: center
 
-        a.add-elements
-          margin: 0 auto
-          width: 50%
-          height: 50%
-          background: blue
+        span.editor-label
+          position: absolute
+          margin: -25px 0 0 0
+          left: 0
+          top: 0
+          font-style: italic
+
+        .add-content
+          height: 100%
+          width: 80%
           display: flex
           align-items: center
-          justify-content: center
-          border-radius: 10px
+          text-align: center
+
+          a.add-elements
+            margin: 0 auto
+            width: 50%
+            height: 50%
+            background: blue
+            display: flex
+            align-items: center
+            justify-content: center
+            border-radius: 10px
+
+        #comic
+          display: flex
+          flex-direction: column
+          width: 100%
+
+          .comic-container
+            display: flex
+            align-items: stretch
+            height: 35%
+            justify-content: center
+
+            .box
+              border: 2px solid #eee
+              flex-basis: 100%
+              //flex-grow: 1
+              margin: 0 10px 10px 0
+              width: calc( 100% / 3)
+
+      #initial-editor
+        margin: 50px auto 60px auto
+
+    #modal
+      position: fixed
+      left: 0
+      top: 0
+      background: rgba(0, 0, 0, 0.5)
+      display: flex
+      justify-content: center
+      align-items: center
+      height: 100%
+      width: 100%
+      backdrop-filter: blur(3px)
+      display: none
+
+      .modal-box
+        max-width: 800px
+        background: #fff
+        padding: 30px
+        text-align: justify
+        border-radius: 5px
+        position: relative
+
+      a.close-button
+        position: absolute
+        right: 0
+        top: 0
+        margin: -30px 0 0 0
