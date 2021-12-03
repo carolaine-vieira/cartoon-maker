@@ -4,7 +4,6 @@ export default function Modal(box) {
     $("#modal").append(`<div class="modal-box"></div>`);
     $(".modal-box").append(`<a class="close-button">X</a>`);
   };
-  initModal();
 
   const modalLinks = [
     {
@@ -30,20 +29,17 @@ export default function Modal(box) {
   };
 
   const showModal = () => {
+    $("#editor").css("margin-right", "20%");
     $("#modal").html("");
     initModal();
     $("#modal").css("display", "flex");
     inputModalLinks();
   };
+  showModal();
 
   const closeModal = () => {
-    $("#modal").hide();
-  };
-
-  const outsideClick = () => {
-    $("#modal").click(function (e) {
-      e.target === this ? closeModal() : {};
-    });
+    $("#editor").css("margin-right", "0%");
+    $("#main #modal").remove();
   };
 
   $("#modal a.close-button").click(function (e) {
@@ -52,9 +48,8 @@ export default function Modal(box) {
   });
 
   $("#modal").click(function (e) {
-    outsideClick();
+    e.target === this ? closeModal() : {};
   });
 
-  showModal();
-  console.log(box);
+  $(box).css("background-color", "red");
 }

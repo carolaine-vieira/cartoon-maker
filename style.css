@@ -29,7 +29,7 @@ body #main aside {
   background: #222;
   padding: 2%;
   height: 100%;
-  width: 25%;
+  width: 20%;
   overflow-y: auto;
 }
 
@@ -86,7 +86,7 @@ body #main aside ul li:nth-child(even) {
 }
 
 body #main #editor {
-  margin-left: 25%;
+  margin-left: 20%;
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
@@ -184,9 +184,9 @@ body #main #editor #initial-editor {
 
 body #main #modal {
   position: fixed;
-  left: 0;
+  right: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -197,9 +197,7 @@ body #main #modal {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  width: 100%;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
+  width: 20%;
   display: none;
 }
 
