@@ -24,6 +24,10 @@ body a {
   cursor: pointer;
 }
 
+body .ui-widget-content {
+  cursor: move;
+}
+
 body #main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -91,7 +95,7 @@ body #main #editor .editor-container {
   -webkit-box-shadow: 0 5px 5px #dfdfdf;
           box-shadow: 0 5px 5px #dfdfdf;
   width: 50vw;
-  height: 75vw;
+  height: 71vw;
   margin: 60px auto;
   padding: 3%;
   -webkit-box-pack: center;
@@ -170,8 +174,46 @@ body #main #editor .editor-container #comic .comic-container .box {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   overflow: hidden;
-  margin: 0 0 15px 0;
+  margin: 0 0 20px 0;
   width: calc( 100% / 3);
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon {
+  border: 2px solid #222;
+  background: #fff;
+  padding: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  max-width: 300px;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon-triangle {
+  position: absolute;
+  background: red;
+  bottom: 0px;
+  left: 50%;
+  margin: 0 0 0px -10px;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon-triangle:before,
+body #main #editor .editor-container #comic .comic-container .box .ballon-triangle:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon-triangle:before {
+  border-width: 16px 10px 0 10px;
+  border-color: #222 transparent transparent transparent;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon-triangle:after {
+  border-width: 14px 8px 0 8px;
+  border-color: #fff transparent transparent transparent;
+  margin: 0 0 0 2px;
 }
 
 body #main #editor .editor-container #comic .comic-container .box img {

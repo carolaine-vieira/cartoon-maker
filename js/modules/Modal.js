@@ -57,6 +57,13 @@ export default function Modal(box) {
     });
   };
 
+  $("#add-ballon").click(function (e) {
+    $(".editing").append(
+      `<div class="ballon ui-widget-content"><div class="ballon-triangle"></div>Write a text</div>`
+    );
+    turnDraggable();
+  });
+
   const showModal = () => {
     $("#editor").css("margin-right", "20%");
     $("#modal").css("display", "flex");
