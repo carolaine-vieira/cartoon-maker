@@ -1,9 +1,6 @@
 export default function Modal(box) {
-  const initModal = () => {
-    $("#main").append(`<div id="modal"></div>`);
-    $("#modal").append(`<div class="modal-box"></div>`);
-    $(".modal-box").append(`<a class="close-button">X</a>`);
-  };
+  $(box).addClass("editing");
+  let imageIdCounter = 0;
 
   const modalLinks = [
     {
@@ -28,10 +25,40 @@ export default function Modal(box) {
     });
   };
 
+  $("#ipt-add-background").change(function inputObject(e) {
+    e.stopImmediatePropagation();
+
+    let image = $(".editing");
+    let imageURI = null;
+    imageURI = URL.createObjectURL(e.target.files[0]);
+
+    $(image).css({
+      background: `#222 url("${imageURI}")`,
+      backgroundSize: "cover",
+    });
+  });
+
+  $("#ipt-add-object").change(function inputObject(e) {
+    e.stopImmediatePropagation();
+
+    let imageURI = URL.createObjectURL(e.target.files[0]);
+
+    $(".editing").append(
+      `<div class="box-image"><img src="${imageURI}" class="box-image-${imageIdCounter}" alt="Object number ${imageIdCounter}" /></div>`
+    );
+    turnDraggable();
+
+    imageIdCounter++;
+  });
+
+  const turnDraggable = () => {
+    $(".box-image").draggable({
+      containment: "parent",
+    });
+  };
+
   const showModal = () => {
     $("#editor").css("margin-right", "20%");
-    $("#modal").html("");
-    initModal();
     $("#modal").css("display", "flex");
     inputModalLinks();
   };
@@ -39,17 +66,12 @@ export default function Modal(box) {
 
   const closeModal = () => {
     $("#editor").css("margin-right", "0%");
-    $("#main #modal").remove();
+    $("#main #modal").hide();
+    $(box).removeClass("editing");
   };
 
   $("#modal a.close-button").click(function (e) {
     e.preventDefault();
     closeModal();
   });
-
-  $("#modal").click(function (e) {
-    e.target === this ? closeModal() : {};
-  });
-
-  $(box).css("background-color", "red");
 }

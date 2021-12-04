@@ -28,10 +28,6 @@ html(lang="en")
             a#export Print
           li
             a#export Image
-            
-        <p><input type="file"  accept="image/*" name="image" id="file" style="display: none;"></p>
-        <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
-        <p><img id="output" width="200" /></p>
 
       #editor 
         .editor-container#editor-1
@@ -39,8 +35,17 @@ html(lang="en")
           .add-content.add-content-1 
             a.add-elements Add content
 
-        //- <input id="file" type="file"><br>
-        //- <img src="" height="200" alt="Image preview...">
+      #modal
+        ul 
+          li 
+            input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-background")
+            label(for="ipt-add-background" style="cursor: pointer;") Upload Background
+
+          li
+            input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-object")
+            label(for="ipt-add-object" style="cursor: pointer;") Upload Object
+
+          li   
         
   script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
   script(type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")

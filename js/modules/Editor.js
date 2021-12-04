@@ -40,6 +40,7 @@ export default function Editor() {
 
     boxs.forEach((box) => {
       box.addEventListener("click", function () {
+        $(".box").removeClass("editing");
         Modal(this);
       });
     });

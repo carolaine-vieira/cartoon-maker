@@ -10,6 +10,10 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body img {
+  max-width: 100%;
+}
+
 body a {
   cursor: pointer;
 }
@@ -97,7 +101,7 @@ body #main #editor .editor-container {
   -webkit-box-shadow: 0 5px 5px #dfdfdf;
           box-shadow: 0 5px 5px #dfdfdf;
   width: 85%;
-  height: 120%;
+  height: 125%;
   margin: 60px auto;
   padding: 5%;
   -webkit-box-pack: center;
@@ -165,6 +169,7 @@ body #main #editor .editor-container #comic .comic-container {
       -ms-flex-align: stretch;
           align-items: stretch;
   height: 35%;
+  max-height: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -174,8 +179,22 @@ body #main #editor .editor-container #comic .comic-container .box {
   border: 2px solid #eee;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
+  overflow: hidden;
   margin: 0 10px 10px 0;
   width: calc( 100% / 3);
+}
+
+body #main #editor .editor-container #comic .comic-container .box img {
+  max-height: 100%;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .box-image {
+  position: absolute;
+  max-width: 25%;
+}
+
+body #main #editor .editor-container #comic .comic-container .editing {
+  background: red;
 }
 
 body #main #editor #initial-editor {
@@ -187,18 +206,15 @@ body #main #modal {
   right: 0;
   top: 0;
   background: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 100%;
   width: 20%;
   display: none;
+  padding: 2%;
+}
+
+body #main #modal ul li {
+  list-style: none;
+  display: block;
 }
 
 body #main #modal .modal-box {
@@ -212,8 +228,19 @@ body #main #modal .modal-box {
 
 body #main #modal a.close-button {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
-  margin: -30px 0 0 0;
+  margin: 0px 0 0 0;
+  z-index: 9;
+}
+
+body #main #modal .ipt-right-aside {
+  display: none;
+}
+
+body #main .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */
