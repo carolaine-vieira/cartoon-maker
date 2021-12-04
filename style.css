@@ -210,6 +210,8 @@ body #main #modal ul {
 body #main #modal ul li {
   list-style: none;
   display: block;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 body #main #modal ul li a,
@@ -220,6 +222,13 @@ body #main #modal ul li label {
   background: #fff;
   margin-bottom: 5px;
   border-radius: 3px;
+}
+
+body #main #modal ul li a .fas,
+body #main #modal ul li label .fas {
+  margin-right: 10px;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
 }
 
 body #main #modal .modal-box {
