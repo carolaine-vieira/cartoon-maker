@@ -9,29 +9,21 @@ html(lang="en")
   body 
     #main 
       aside 
-        span.title Add
+        span.category-title Add
         ul#add-elements-link          
           li
             a#add-page Page
-          li
-            a#add-background Background 
-          li
-            a Object
-          li
-            a Baloon
-          li
-            a Divider
 
-        span.title Export as
+        span.category-title Export as
         ul#export-links        
           li
             a#export Print
-          li
-            a#export Image
+          //- li
+          //-   a#export Image
 
       #editor 
         .editor-container#editor-1
-          span.editor-label Page 1
+          span.editor-label First Page &mdash; Welcome
           .add-content.add-content-1 
             a.add-elements Add content
 
@@ -45,9 +37,9 @@ html(lang="en")
             input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-object")
             label(for="ipt-add-object" style="cursor: pointer;") Upload Object
 
-          li   
+          li
+            a(id="add-ballon") Add Ballon
         
   script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
   script(type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
-  script(src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js")
   script(type="module" src="./js/script.js" defer)

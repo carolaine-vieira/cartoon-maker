@@ -21,16 +21,17 @@ export default function Editor() {
 
   const inputBoxs = (editorParent) => {
     let boxs = null;
+    $(`#${editorParent}`).html("");
 
     $(`#${editorParent}`).append(`<div id="comic"></div>`);
     $(`#${editorParent} #comic`).append(
       `<div class="comic-container"><div class="box"></div></div>`
     );
     $(`#${editorParent} #comic`).append(
-      `<div class="comic-container"><div class="box"></div><div class="box"></div><div class="box"></div></div>`
+      `<div class="comic-container"><div class="box"></div></div>`
     );
     $(`#${editorParent} #comic`).append(
-      `<div class="comic-container"><div class="box"></div><div class="box"></div></div>`
+      `<div class="comic-container"><div class="box"></div></div>`
     );
 
     boxs = document.querySelectorAll(`#${editorParent} .box`);
@@ -48,6 +49,8 @@ export default function Editor() {
 
   $("#export").click(function (e) {
     $("aside").hide();
+    $("#modal").hide();
+    $(".editing").css("box-shadow", "none");
     $("#editor").css({
       marginLeft: 0,
     });
@@ -56,6 +59,7 @@ export default function Editor() {
       width: "100vw",
       height: "145.7vw",
       margin: 0,
+      padding: 2,
     });
     window.print();
   });
@@ -74,9 +78,10 @@ export default function Editor() {
 
     id == 2
       ? $("aside").append(
-          `<span class="title">Current editing pages</span><ul id="pages-available"><li><a href="#editor-1">Page 1</a></li></ul>`
+          `<span class="category-title">Current editing pages</span><ul id="pages-available"><li><a href="#editor-1">Page 1</a></li></ul>`
         )
       : {};
+
     $("aside ul#pages-available").append(
       `<li><a href="#editor-label-${id}">Page ${id}</a></li>`
     );

@@ -44,7 +44,7 @@ export default function Modal(box) {
     let imageURI = URL.createObjectURL(e.target.files[0]);
 
     $(".editing").append(
-      `<div class="box-image"><img src="${imageURI}" class="box-image-${imageIdCounter}" alt="Object number ${imageIdCounter}" /></div>`
+      `<div class="ui-widget-content box-image"><img src="${imageURI}" class="box-image-${imageIdCounter}" alt="Object number ${imageIdCounter}" /></div>`
     );
     turnDraggable();
 
@@ -52,7 +52,7 @@ export default function Modal(box) {
   });
 
   const turnDraggable = () => {
-    $(".box-image").draggable({
+    $(".ui-widget-content").draggable({
       containment: "parent",
     });
   };
