@@ -1,3 +1,3 @@
 # Cartoon Creator
 
-![Carton Creator Peview Image](./assets/preview.jpg)
+![Carton Creator Peview Image](./assets/Preview.jpg)
