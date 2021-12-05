@@ -69,7 +69,7 @@ export default function Editor() {
     );
 
     id == 2
-      ? $("aside").append(
+      ? $("aside.left").append(
           `<span class="category-title">Current editing pages</span><ul id="pages-available"><li><a href="#editor-1">Page 1</a></li></ul>`
         )
       : {};
