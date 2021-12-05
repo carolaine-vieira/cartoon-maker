@@ -203,7 +203,7 @@ body
               display: inline-block
 
             .editing
-              box-shadow: 0 5px 5px #cccccc
+              outline: 3px solid #dfdfdf
 
       #initial-editor
         margin: 50px auto 60px auto
@@ -260,3 +260,21 @@ body
 
     .active
       display: flex
+
+body.onprint
+  aside,
+  #modal,
+  span.editor-label
+    display: none !important
+
+  .editing
+    outline: none !important
+
+  #editor
+    margin-left: 0 !important
+
+  .editor-container
+    width: 100vw !important
+    height: 145.7vw !important
+    margin: 0 !important
+    padding: 2px !important

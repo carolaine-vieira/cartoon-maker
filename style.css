@@ -281,8 +281,7 @@ body #main #editor .editor-container #comic .comic-container .box:hover a.object
 }
 
 body #main #editor .editor-container #comic .comic-container .editing {
-  -webkit-box-shadow: 0 5px 5px #cccccc;
-          box-shadow: 0 5px 5px #cccccc;
+  outline: 3px solid #dfdfdf;
 }
 
 body #main #editor #initial-editor {
@@ -353,5 +352,26 @@ body #main .active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+body.onprint aside,
+body.onprint #modal,
+body.onprint span.editor-label {
+  display: none !important;
+}
+
+body.onprint .editing {
+  outline: none !important;
+}
+
+body.onprint #editor {
+  margin-left: 0 !important;
+}
+
+body.onprint .editor-container {
+  width: 100vw !important;
+  height: 145.7vw !important;
+  margin: 0 !important;
+  padding: 2px !important;
 }
 /*# sourceMappingURL=style.css.map */

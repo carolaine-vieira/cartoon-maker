@@ -48,21 +48,13 @@ export default function Editor() {
   };
 
   $("#export").click(function (e) {
-    $("aside").hide();
-    $("#modal").hide();
-    $(".editing").css("box-shadow", "none");
-    $("#editor").css({
-      marginLeft: 0,
-    });
-    $("span.editor-label").hide();
-    $(".editor-container").css({
-      width: "100vw",
-      height: "145.7vw",
-      margin: 0,
-      padding: 2,
-    });
+    $("body").addClass("onprint");
     window.print();
   });
+
+  window.onafterprint = (event) => {
+    $("body").removeClass("onprint");
+  };
 
   $("#add-page").click(function (e) {
     $("#editor").append(
