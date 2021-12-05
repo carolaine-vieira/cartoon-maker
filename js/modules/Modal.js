@@ -17,7 +17,7 @@ export default function Modal(box) {
     },
   ];
 
-  const inputModalLinks = () => {
+  const insertModalLinks = () => {
     modalLinks.forEach((link) => {
       $("#modal .modal-box").append(
         `<li><a id="${link.id}">${link.title}<a/></li>`
@@ -25,7 +25,18 @@ export default function Modal(box) {
     });
   };
 
-  $("#ipt-add-background").change(function inputObject(e) {
+  const insertObjectOptions = () => {
+    $(".object-editable a.object-options").remove();
+    $(".object-editable").append(
+      `<a class="object-options" title="Delete"><span class="fas fa-trash-alt"></span> Delete</a>`
+    );
+  };
+
+  $(".object-options").click(function fireDeleteObject() {
+    $(this).parent().remove();
+  });
+
+  $("#ipt-add-background").change(function insertObjects(e) {
     e.stopImmediatePropagation();
 
     let image = $(".editing");
@@ -38,17 +49,19 @@ export default function Modal(box) {
     });
   });
 
-  $("#ipt-add-object").change(function inputObject(e) {
+  $("#ipt-add-object").change(function insertObjects(e) {
     e.stopImmediatePropagation();
 
     let imageURI = URL.createObjectURL(e.target.files[0]);
 
     $(".editing").append(
-      `<div class="ui-widget-content box-image"><img src="${imageURI}" class="box-image-${imageIdCounter}" alt="Object number ${imageIdCounter}" /></div>`
+      `<div class="ui-widget-content box-image object-editable"><img src="${imageURI}" class="box-image-${imageIdCounter}" alt="Object number ${imageIdCounter}" /></div>`
     );
     turnDraggable();
+    insertObjectOptions();
 
     imageIdCounter++;
+    e.target.value = null;
   });
 
   const turnDraggable = () => {
@@ -58,16 +71,22 @@ export default function Modal(box) {
   };
 
   $("#add-ballon").click(function (e) {
+    e.stopImmediatePropagation();
+
     $(".editing").append(
-      `<div class="ballon ui-widget-content"><div class="ballon-triangle"></div>Write a text</div>`
+      `<div class="ballon ui-widget-content object-editable">
+        <div class="ballon-triangle"></div>
+        <textarea class="ballon-textarea" placeholder="Enter a text" value="Write a text"></textarea>
+      </div>`
     );
     turnDraggable();
+    insertObjectOptions();
   });
 
   const showModal = () => {
     $("#editor").css("margin-right", "20%");
     $("#modal").css("display", "flex");
-    inputModalLinks();
+    insertModalLinks();
   };
   showModal();
 

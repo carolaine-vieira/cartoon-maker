@@ -28,7 +28,7 @@ export default function Editor() {
       `<div class="comic-container"><div class="box"></div></div>`
     );
     $(`#${editorParent} #comic`).append(
-      `<div class="comic-container"><div class="box"></div></div>`
+      `<div class="comic-container"><div class="box"></div><div class="box"></div></div>`
     );
     $(`#${editorParent} #comic`).append(
       `<div class="comic-container"><div class="box"></div></div>`

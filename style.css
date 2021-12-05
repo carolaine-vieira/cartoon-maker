@@ -11,7 +11,8 @@
 }
 
 body {
-  background: #eee;
+  background: #eee url(./assets/background-tiles.png) fixed;
+  background-size: 200px auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
 }
@@ -45,6 +46,7 @@ body #main aside {
   height: 100%;
   width: 20vw;
   overflow-y: auto;
+  font-weight: 500;
 }
 
 body #main aside span.category-title {
@@ -97,7 +99,7 @@ body #main #editor .editor-container {
   width: 50vw;
   height: 71vw;
   margin: 60px auto;
-  padding: 3%;
+  padding: 3% calc(3% - 20px) 3% 3%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -129,9 +131,10 @@ body #main #editor .editor-container .add-content {
 
 body #main #editor .editor-container .add-content a.add-elements {
   margin: 0 auto;
-  width: 50%;
-  height: 50%;
+  width: 80%;
+  height: 80%;
   background: var(--accent-color);
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,6 +145,7 @@ body #main #editor .editor-container .add-content a.add-elements {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 10px;
+  font-size: 30px;
 }
 
 body #main #editor .editor-container #comic {
@@ -174,18 +178,65 @@ body #main #editor .editor-container #comic .comic-container .box {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   overflow: hidden;
-  margin: 0 0 20px 0;
+  margin: 0 20px 20px 0;
   width: calc( 100% / 3);
+}
+
+body #main #editor .editor-container #comic .comic-container .box .object-editable {
+  position: relative;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .object-editable a.object-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -25px 0 0 0;
+  display: none;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 3px;
 }
 
 body #main #editor .editor-container #comic .comic-container .box .ballon {
   border: 2px solid #222;
   background: #fff;
-  padding: 20px;
+  padding: 5px;
   border-radius: 50%;
   display: inline-block;
   position: relative;
   max-width: 300px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon .ballon-textarea {
+  border: none;
+  text-align: center;
+  padding: 5px;
+  border-radius: 50%;
+  resize: none;
+  overflow-y: hidden;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon .ballon-textarea:focus {
+  resize: vertical;
+  overflow-y: auto;
+}
+
+body #main #editor .editor-container #comic .comic-container .box .ballon:hover .ballon-textarea {
+  resize: vertical;
+  overflow-y: auto;
 }
 
 body #main #editor .editor-container #comic .comic-container .box .ballon-triangle {
@@ -193,7 +244,7 @@ body #main #editor .editor-container #comic .comic-container .box .ballon-triang
   background: red;
   bottom: 0px;
   left: 50%;
-  margin: 0 0 0px -10px;
+  margin: 0 0 1px -10px;
 }
 
 body #main #editor .editor-container #comic .comic-container .box .ballon-triangle:before,
@@ -225,9 +276,13 @@ body #main #editor .editor-container #comic .comic-container .box .box-image {
   max-width: 25%;
 }
 
+body #main #editor .editor-container #comic .comic-container .box:hover a.object-options {
+  display: inline-block;
+}
+
 body #main #editor .editor-container #comic .comic-container .editing {
-  -webkit-box-shadow: 0 5px 5px #999;
-          box-shadow: 0 5px 5px #999;
+  -webkit-box-shadow: 0 5px 5px #cccccc;
+          box-shadow: 0 5px 5px #cccccc;
 }
 
 body #main #editor #initial-editor {

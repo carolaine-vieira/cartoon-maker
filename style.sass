@@ -9,7 +9,8 @@
   --accent-color: #e84f4f
 
 body
-  background: #eee
+  background: #eee url(./assets/background-tiles.png) fixed
+  background-size: 200px auto
   font-family: 'Montserrat', sans-serif
   font-size: 13px
 
@@ -34,6 +35,7 @@ body
       height: 100%
       width: 20vw
       overflow-y: auto
+      font-weight: 500
 
       span.category-title
         color: #888
@@ -70,7 +72,7 @@ body
         width: 50vw
         height: 71vw
         margin: 60px auto
-        padding: 3%
+        padding: 3% calc(3% - 20px) 3% 3%
         justify-content: center
         position: relative
         display: flex
@@ -91,13 +93,15 @@ body
 
           a.add-elements
             margin: 0 auto
-            width: 50%
-            height: 50%
+            width: 80%
+            height: 80%
             background: var(--accent-color)
+            color: #fff
             display: flex
             align-items: center
             justify-content: center
             border-radius: 10px
+            font-size: 30px
 
         #comic
           display: flex
@@ -116,24 +120,60 @@ body
               flex-basis: 100%
               //flex-grow: 1
               overflow: hidden
-              margin: 0 0 20px 0
+              margin: 0 20px 20px 0
               width: calc( 100% / 3)
+
+              .object-editable
+                position: relative
+
+                a.object-options
+                  position: absolute
+                  top: 0
+                  left: 0
+                  margin: -25px 0 0 0
+                  display: none
+                  background: red
+                  color: #fff
+                  font-size: 10px
+                  text-transform: uppercase
+                  font-weight: 600
+                  padding: 3px 8px
+                  border-radius: 3px
 
               .ballon
                 border: 2px solid #222
                 background: #fff
-                padding: 20px
+                padding: 5px
                 border-radius: 50%
                 display: inline-block
                 position: relative
                 max-width: 300px
+                display: inline-flex
+                justify-content: center
+                align-items: center
+
+                .ballon-textarea
+                  border: none
+                  text-align: center
+                  padding: 5px
+                  border-radius: 50%
+                  resize: none
+                  overflow-y: hidden
+
+                .ballon-textarea:focus
+                  resize: vertical
+                  overflow-y: auto
+
+              .ballon:hover .ballon-textarea
+                resize: vertical
+                overflow-y: auto
 
               .ballon-triangle
                 position: absolute
                 background: red
                 bottom: 0px
                 left: 50%
-                margin: 0 0 0px -10px
+                margin: 0 0 1px -10px
 
               .ballon-triangle:before,
               .ballon-triangle:after
@@ -159,8 +199,11 @@ body
                 position: absolute
                 max-width: 25%
 
+            .box:hover a.object-options
+              display: inline-block
+
             .editing
-              box-shadow: 0 5px 5px #999
+              box-shadow: 0 5px 5px #cccccc
 
       #initial-editor
         margin: 50px auto 60px auto
