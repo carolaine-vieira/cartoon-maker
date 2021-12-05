@@ -9,7 +9,7 @@ html(lang="en")
     title Cartoon Creator
   body 
     #main 
-      aside 
+      aside.left 
         span.category-title Add
         ul#add-elements-link          
           li
@@ -25,7 +25,7 @@ html(lang="en")
         span.category-title Page Settings
         ul#export-links        
           li
-            span(class="fas fa-search-plus") 
+            span(class="fas fa-search-plus" title="Page zoom") 
             input(type="number" min="30" max="100" id="page-zoom" value="100")
 
       #editor 
@@ -34,7 +34,7 @@ html(lang="en")
           .add-content.add-content-1 
             a.add-elements Add content
 
-      #modal
+      aside#modal
         ul 
           li 
             input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-background")

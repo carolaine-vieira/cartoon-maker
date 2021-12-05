@@ -71,17 +71,53 @@ body
             padding: 9.5px 10px
             margin-right: 5px
             border-radius: 3px
-            cursor: not-allowed
+            cursor: help
+
+          a,
+          label
+            color: #222
+            display: inline-flex
+            padding: 10px 15px
+            background: #fff
+            margin-bottom: 5px
+            border-radius: 3px
+            width: 100%
+            align-items: center
 
           a
-            background: #fff
-            display: inline-flex
-            width: 100%
-            justify-content: center
-            align-items: center
-            padding: 10px
-            border-radius: 3px
-            margin-bottom: 5px
+            .fas
+              margin-right: 10px
+              transform: scale(1.4)
+
+          label
+            .fas
+              margin-right: 10px
+              transform: scale(1.4)
+
+      .ipt-right-aside
+        display: none
+
+      a.close-button
+        position: absolute
+        left: 0
+        top: 0
+        margin: 0px 0 0 0
+        z-index: 9
+
+    aside.left
+      left: 0
+
+      a
+        justify-content: center
+
+    aside#modal
+      right: 0
+      display: none
+
+      a,
+      label
+        text-align: left
+        margin-bottom: 7px
 
     #editor
       margin-left: 20%
@@ -197,7 +233,7 @@ body
                 background: red
                 bottom: 0px
                 left: 50%
-                margin: 0 0 1px -10px
+                margin: 0 0 1.5px -10px
 
               .ballon-triangle:before,
               .ballon-triangle:after
@@ -214,7 +250,7 @@ body
               .ballon-triangle:after
                 border-width: 14px 8px 0 8px
                 border-color: #fff transparent transparent transparent
-                margin: 0 0 0 2px
+                margin: -1px 0 0 2px
 
               img
                 max-height: 100%
@@ -232,64 +268,10 @@ body
       #initial-editor
         margin: 50px auto 60px auto
 
-    #modal
-      position: fixed
-      right: 0
-      top: 0
-      background: #222
-      height: 100%
-      width: 18vw
-      display: none
-      padding: 2%
-
-      ul
-        width: 100%
-
-        li
-          list-style: none
-          display: block
-          font-weight: 500
-          font-size: 12px
-
-          a,
-          label
-            color: #222
-            display: block
-            padding: 15px
-            background: #fff
-            margin-bottom: 5px
-            border-radius: 3px
-
-            .fas
-              margin-right: 10px
-              transform: scale(1.4)
-
-      .modal-box
-        max-width: 800px
-        background: #fff
-        padding: 30px
-        text-align: justify
-        border-radius: 5px
-        position: relative
-
-      a.close-button
-        position: absolute
-        left: 0
-        top: 0
-        margin: 0px 0 0 0
-        z-index: 9
-
-      .ipt-right-aside
-        display: none
-
-    .active
-      display: flex
-
 body.onprint
   background: transparent !important
 
   aside,
-  #modal,
   span.editor-label,
   a.object-options
     display: none !important

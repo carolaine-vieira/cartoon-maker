@@ -95,24 +95,68 @@ body #main aside ul li .fa-search-plus {
   padding: 9.5px 10px;
   margin-right: 5px;
   border-radius: 3px;
-  cursor: not-allowed;
+  cursor: help;
 }
 
-body #main aside ul li a {
-  background: #fff;
+body #main aside ul li a,
+body #main aside ul li label {
+  color: #222;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  padding: 10px 15px;
+  background: #fff;
+  margin-bottom: 5px;
+  border-radius: 3px;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px;
-  border-radius: 3px;
-  margin-bottom: 5px;
+}
+
+body #main aside ul li a .fas {
+  margin-right: 10px;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
+
+body #main aside ul li label .fas {
+  margin-right: 10px;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
+
+body #main aside .ipt-right-aside {
+  display: none;
+}
+
+body #main aside a.close-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0px 0 0 0;
+  z-index: 9;
+}
+
+body #main aside.left {
+  left: 0;
+}
+
+body #main aside.left a {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #main aside#modal {
+  right: 0;
+  display: none;
+}
+
+body #main aside#modal a,
+body #main aside#modal label {
+  text-align: left;
+  margin-bottom: 7px;
 }
 
 body #main #editor {
@@ -281,7 +325,7 @@ body #main #editor .editor-container #comic .comic-container .box .ballon-triang
   background: red;
   bottom: 0px;
   left: 50%;
-  margin: 0 0 1px -10px;
+  margin: 0 0 1.5px -10px;
 }
 
 body #main #editor .editor-container #comic .comic-container .box .ballon-triangle:before,
@@ -301,7 +345,7 @@ body #main #editor .editor-container #comic .comic-container .box .ballon-triang
 body #main #editor .editor-container #comic .comic-container .box .ballon-triangle:after {
   border-width: 14px 8px 0 8px;
   border-color: #fff transparent transparent transparent;
-  margin: 0 0 0 2px;
+  margin: -1px 0 0 2px;
 }
 
 body #main #editor .editor-container #comic .comic-container .box img {
@@ -325,78 +369,11 @@ body #main #editor #initial-editor {
   margin: 50px auto 60px auto;
 }
 
-body #main #modal {
-  position: fixed;
-  right: 0;
-  top: 0;
-  background: #222;
-  height: 100%;
-  width: 18vw;
-  display: none;
-  padding: 2%;
-}
-
-body #main #modal ul {
-  width: 100%;
-}
-
-body #main #modal ul li {
-  list-style: none;
-  display: block;
-  font-weight: 500;
-  font-size: 12px;
-}
-
-body #main #modal ul li a,
-body #main #modal ul li label {
-  color: #222;
-  display: block;
-  padding: 15px;
-  background: #fff;
-  margin-bottom: 5px;
-  border-radius: 3px;
-}
-
-body #main #modal ul li a .fas,
-body #main #modal ul li label .fas {
-  margin-right: 10px;
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
-}
-
-body #main #modal .modal-box {
-  max-width: 800px;
-  background: #fff;
-  padding: 30px;
-  text-align: justify;
-  border-radius: 5px;
-  position: relative;
-}
-
-body #main #modal a.close-button {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 0px 0 0 0;
-  z-index: 9;
-}
-
-body #main #modal .ipt-right-aside {
-  display: none;
-}
-
-body #main .active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 body.onprint {
   background: transparent !important;
 }
 
 body.onprint aside,
-body.onprint #modal,
 body.onprint span.editor-label,
 body.onprint a.object-options {
   display: none !important;
