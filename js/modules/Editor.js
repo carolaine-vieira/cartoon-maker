@@ -88,5 +88,11 @@ export default function Editor() {
     inputBoxs(editorId);
   };
 
+  $("#page-zoom").change(function (e) {
+    e.preventDefault();
+    let value = e.target.value;
+    $("#editor").css("zoom", `${value}%`);
+  });
+
   refresh();
 }

@@ -33,7 +33,7 @@ body
       background: #222
       padding: 2%
       height: 100%
-      width: 20vw
+      width: 18vw
       overflow-y: auto
       font-weight: 500
 
@@ -51,6 +51,27 @@ body
 
         li
           list-style: none
+          display: flex
+          justify-content: center
+          align-items: center
+
+          #page-zoom
+            width: 100%
+            padding: 10px
+            border: none
+            border-radius: 3px
+            background: #fff
+
+          #page-zoom:focus
+            outline: 2px solid var(--accent-color)
+
+          .fa-search-plus
+            font-size: 16px
+            background: #fff
+            padding: 9.5px 10px
+            margin-right: 5px
+            border-radius: 3px
+            cursor: not-allowed
 
           a
             background: #fff
@@ -65,12 +86,14 @@ body
     #editor
       margin-left: 20%
       flex: 3
+      justify-content: center
+      align-items: center
 
       .editor-container
         background: #fff
         box-shadow: 0 5px 5px #dfdfdf
-        width: 50vw
-        height: 69vw
+        width: 26cm
+        height: 34.7cm
         margin: 60px auto
         padding: 3% calc(3% - 20px) 3% 3%
         justify-content: center
@@ -83,6 +106,7 @@ body
           left: 0
           top: 0
           font-style: italic
+          z-index: 1
 
         .add-content
           height: 100%
@@ -214,7 +238,7 @@ body
       top: 0
       background: #222
       height: 100%
-      width: 20vw
+      width: 18vw
       display: none
       padding: 2%
 
@@ -262,6 +286,8 @@ body
       display: flex
 
 body.onprint
+  background: transparent !important
+
   aside,
   #modal,
   span.editor-label,
@@ -273,9 +299,11 @@ body.onprint
 
   #editor
     margin-left: 0 !important
+    zoom: 0 !important
 
   .editor-container
-    width: 100vw !important
-    height: 145.7vw !important
-    margin: 0 !important
-    padding: 2px !important
+    width: 29cm !important //tamanho no a4
+    height: 37.7cm !important
+    margin: 0 auto !important
+    padding: 0 !important
+    box-shadow: none !important

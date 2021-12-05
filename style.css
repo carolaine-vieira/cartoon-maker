@@ -44,7 +44,7 @@ body #main aside {
   background: #222;
   padding: 2%;
   height: 100%;
-  width: 20vw;
+  width: 18vw;
   overflow-y: auto;
   font-weight: 500;
 }
@@ -66,6 +66,36 @@ body #main aside ul {
 
 body #main aside ul li {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #main aside ul li #page-zoom {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background: #fff;
+}
+
+body #main aside ul li #page-zoom:focus {
+  outline: 2px solid var(--accent-color);
+}
+
+body #main aside ul li .fa-search-plus {
+  font-size: 16px;
+  background: #fff;
+  padding: 9.5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  cursor: not-allowed;
 }
 
 body #main aside ul li a {
@@ -90,14 +120,20 @@ body #main #editor {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body #main #editor .editor-container {
   background: #fff;
   -webkit-box-shadow: 0 5px 5px #dfdfdf;
           box-shadow: 0 5px 5px #dfdfdf;
-  width: 50vw;
-  height: 69vw;
+  width: 26cm;
+  height: 34.7cm;
   margin: 60px auto;
   padding: 3% calc(3% - 20px) 3% 3%;
   -webkit-box-pack: center;
@@ -115,6 +151,7 @@ body #main #editor .editor-container span.editor-label {
   left: 0;
   top: 0;
   font-style: italic;
+  z-index: 1;
 }
 
 body #main #editor .editor-container .add-content {
@@ -294,7 +331,7 @@ body #main #modal {
   top: 0;
   background: #222;
   height: 100%;
-  width: 20vw;
+  width: 18vw;
   display: none;
   padding: 2%;
 }
@@ -354,6 +391,10 @@ body #main .active {
   display: flex;
 }
 
+body.onprint {
+  background: transparent !important;
+}
+
 body.onprint aside,
 body.onprint #modal,
 body.onprint span.editor-label,
@@ -367,12 +408,15 @@ body.onprint .editing {
 
 body.onprint #editor {
   margin-left: 0 !important;
+  zoom: 0 !important;
 }
 
 body.onprint .editor-container {
-  width: 100vw !important;
-  height: 145.7vw !important;
-  margin: 0 !important;
-  padding: 2px !important;
+  width: 29cm !important;
+  height: 37.7cm !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 /*# sourceMappingURL=style.css.map */
