@@ -92,7 +92,7 @@ export default function Modal(box) {
 
   const showModal = () => {
     $("#editor").css("margin-right", "20%");
-    $("#modal").css("display", "flex");
+    $("#modal").css("display", "block");
     insertModalLinks();
   };
   showModal();
