@@ -97,7 +97,7 @@ body #main #editor .editor-container {
   -webkit-box-shadow: 0 5px 5px #dfdfdf;
           box-shadow: 0 5px 5px #dfdfdf;
   width: 50vw;
-  height: 71vw;
+  height: 69vw;
   margin: 60px auto;
   padding: 3% calc(3% - 20px) 3% 3%;
   -webkit-box-pack: center;
@@ -356,7 +356,8 @@ body #main .active {
 
 body.onprint aside,
 body.onprint #modal,
-body.onprint span.editor-label {
+body.onprint span.editor-label,
+body.onprint a.object-options {
   display: none !important;
 }
 

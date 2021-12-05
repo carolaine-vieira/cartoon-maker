@@ -30,11 +30,18 @@ export default function Modal(box) {
     $(".object-editable").append(
       `<a class="object-options" title="Delete"><span class="fas fa-trash-alt"></span> Delete</a>`
     );
+    deleteObject();
   };
 
-  $(".object-options").click(function fireDeleteObject() {
-    $(this).parent().remove();
-  });
+  const deleteObject = () => {
+    let objects;
+    objects = document.querySelectorAll(".object-options");
+    objects.forEach((object) => {
+      $(object).click(() => {
+        object.parentNode.remove();
+      });
+    });
+  };
 
   $("#ipt-add-background").change(function insertObjects(e) {
     e.stopImmediatePropagation();
