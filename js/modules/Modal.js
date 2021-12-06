@@ -54,6 +54,8 @@ export default function Modal(box) {
       background: `#222 url("${imageURI}")`,
       backgroundSize: "cover",
     });
+
+    e.target.value = null;
   });
 
   $("#ipt-add-object").change(function insertObjects(e) {
