@@ -196,8 +196,8 @@ body #main #editor .editor-container {
   background: #fff;
   -webkit-box-shadow: 0 5px 5px #dfdfdf;
           box-shadow: 0 5px 5px #dfdfdf;
-  width: 26cm;
-  height: 34.7cm;
+  width: 28cm;
+  height: 36.7cm;
   margin: 60px auto;
   padding: 3% calc(3% - 20px) 3% 3%;
   -webkit-box-pack: center;
@@ -409,9 +409,9 @@ body.onprint #editor {
 }
 
 body.onprint .editor-container {
-  width: 29cm !important;
-  height: 37.7cm !important;
-  margin: 0 auto !important;
+  width: 30cm !important;
+  height: 38.7cm !important;
+  margin: 0 auto 5cm auto !important;
   padding: 0 !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
