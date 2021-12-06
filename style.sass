@@ -110,6 +110,10 @@ body
       a
         justify-content: center
 
+      a.active
+        background: var(--accent-color)
+        color: #fff
+
     aside#modal
       right: 0
       display: none
@@ -118,6 +122,18 @@ body
       label
         text-align: left
         margin-bottom: 7px
+
+    aside::-webkit-scrollbar
+      width: 15px
+
+    aside::-webkit-scrollbar-track
+      background: rgba(255, 255, 255, 0.2)
+      border: 7px solid #222
+
+    aside::-webkit-scrollbar-thumb
+      background: #fff
+      border-radius: 10px
+      border: 6px solid #222
 
     #editor
       margin-left: 20%

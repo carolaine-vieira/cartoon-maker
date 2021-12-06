@@ -148,6 +148,11 @@ body #main aside.left a {
           justify-content: center;
 }
 
+body #main aside.left a.active {
+  background: var(--accent-color);
+  color: #fff;
+}
+
 body #main aside#modal {
   right: 0;
   display: none;
@@ -157,6 +162,21 @@ body #main aside#modal a,
 body #main aside#modal label {
   text-align: left;
   margin-bottom: 7px;
+}
+
+body #main aside::-webkit-scrollbar {
+  width: 15px;
+}
+
+body #main aside::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border: 7px solid #222;
+}
+
+body #main aside::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
+  border: 6px solid #222;
 }
 
 body #main #editor {
