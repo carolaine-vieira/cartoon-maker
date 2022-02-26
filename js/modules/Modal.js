@@ -1,4 +1,6 @@
 export default function Modal(box) {
+  let editingMode = false;
+  const editors = document.querySelectorAll(".editor-container");
   $(box).addClass("editing");
   let imageIdCounter = 0;
 
@@ -18,6 +20,9 @@ export default function Modal(box) {
   ];
 
   const insertModalLinks = () => {
+    editingMode = true;
+    editors.forEach(editor => editor.classList.add("editing-mode"));
+
     modalLinks.forEach((link) => {
       $("#modal .modal-box").append(
         `<li><a id="${link.id}">${link.title}<a/></li>`
@@ -93,8 +98,7 @@ export default function Modal(box) {
   });
 
   const showModal = () => {
-    $("#editor").css("margin-right", "20%");
-    $("#modal").css("display", "block");
+    $("#modal").show();
     insertModalLinks();
   };
   showModal();

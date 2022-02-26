@@ -26,15 +26,14 @@ body
   #main
     display: flex
     min-height: 100vh
+    width: 100%
+    flex-wrap: wrap
+    justify-content: flex-end
 
     aside
-      position: fixed
-      flex: 1
+      flex: 0 0 20%
       background: #222
       padding: 2%
-      height: 100%
-      width: 18vw
-      overflow-y: auto
       font-weight: 500
 
       span.category-title
@@ -48,6 +47,7 @@ body
 
       ul
         width: calc(100% - 0px)
+        position: sticky
 
         li
           list-style: none
@@ -115,8 +115,7 @@ body
         color: #fff
 
     aside#modal
-      right: 0
-      display: none
+      // display: none
 
       a,
       label
@@ -136,17 +135,21 @@ body
       border: 6px solid #222
 
     #editor
-      margin-left: 20%
-      flex: 3
-      justify-content: center
-      align-items: center
+      flex: 1
+      display: flex
+      flex-direction: column
+      align-content: space-around
+      flex-wrap: wrap
+      zoom: 67%
 
       .editor-container
+        // flex: 0 0 159%
+        // width: calc(100% - 6%)
+        width: 24.5cm !important //tamanho no a4
+        height: 30.13cm !important
         background: #fff
         box-shadow: 0 5px 5px #dfdfdf
-        width: 28cm
-        height: 36.7cm
-        margin: 60px auto
+        margin: 6% 3% 0 3%
         padding: 3% calc(3% - 20px) 3% 3%
         justify-content: center
         position: relative
@@ -194,10 +197,10 @@ body
             .box
               border: 1px solid #eee
               flex-basis: 100%
-              //flex-grow: 1
               overflow: hidden
               margin: 0 20px 20px 0
               width: calc( 100% / 3)
+              position: relative
 
               .object-editable
                 position: relative
@@ -296,12 +299,20 @@ body.onprint
     outline: none !important
 
   #editor
-    margin-left: 0 !important
     zoom: 0 !important
+    display: block !important
+    box-shadow: none !important
+    margin: 0 !important
 
   .editor-container
-    width: 30cm !important //tamanho no a4
-    height: 38.7cm !important
-    margin: 0 auto 5cm auto !important
-    padding: 0 !important
+    margin: 0 auto 4.45cm auto !important
     box-shadow: none !important
+    padding: 0 0 0 5.5% !important
+
+@media (max-width: 768px)
+  body
+    #editor
+      zoom: 33% !important
+
+    aside
+      display: none

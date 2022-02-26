@@ -34,18 +34,20 @@ body #main {
   display: -ms-flexbox;
   display: flex;
   min-height: 100vh;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 body #main aside {
-  position: fixed;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 20%;
+          flex: 0 0 20%;
   background: #222;
   padding: 2%;
-  height: 100%;
-  width: 18vw;
-  overflow-y: auto;
   font-weight: 500;
 }
 
@@ -62,6 +64,8 @@ body #main aside span.category-title:first-child {
 
 body #main aside ul {
   width: calc(100% - 0px);
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 body #main aside ul li {
@@ -153,11 +157,6 @@ body #main aside.left a.active {
   color: #fff;
 }
 
-body #main aside#modal {
-  right: 0;
-  display: none;
-}
-
 body #main aside#modal a,
 body #main aside#modal label {
   text-align: left;
@@ -180,25 +179,30 @@ body #main aside::-webkit-scrollbar-thumb {
 }
 
 body #main #editor {
-  margin-left: 20%;
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  zoom: 67%;
 }
 
 body #main #editor .editor-container {
+  width: 24.5cm !important;
+  height: 30.13cm !important;
   background: #fff;
   -webkit-box-shadow: 0 5px 5px #dfdfdf;
           box-shadow: 0 5px 5px #dfdfdf;
-  width: 28cm;
-  height: 36.7cm;
-  margin: 60px auto;
+  margin: 6% 3% 0 3%;
   padding: 3% calc(3% - 20px) 3% 3%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -281,6 +285,7 @@ body #main #editor .editor-container #comic .comic-container .box {
   overflow: hidden;
   margin: 0 20px 20px 0;
   width: calc( 100% / 3);
+  position: relative;
 }
 
 body #main #editor .editor-container #comic .comic-container .box .object-editable {
@@ -404,16 +409,26 @@ body.onprint .editing {
 }
 
 body.onprint #editor {
-  margin-left: 0 !important;
   zoom: 0 !important;
+  display: block !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  margin: 0 !important;
 }
 
 body.onprint .editor-container {
-  width: 30cm !important;
-  height: 38.7cm !important;
-  margin: 0 auto 5cm auto !important;
-  padding: 0 !important;
+  margin: 0 auto 4.45cm auto !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
+  padding: 0 0 0 5.5% !important;
+}
+
+@media (max-width: 768px) {
+  body #editor {
+    zoom: 33% !important;
+  }
+  body aside {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */
