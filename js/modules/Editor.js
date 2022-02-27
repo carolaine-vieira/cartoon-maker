@@ -1,9 +1,8 @@
 import Modal from "./Modal.js";
 
 export default function Editor() {
-  let id = 2;
-
-  $(".tt").hide();
+  let id = 2, initialZoom = 80;
+  const editor = document.querySelector("#editor");
 
   const refresh = () => {
     const editors = document.querySelectorAll(".editor-container");
@@ -44,10 +43,9 @@ export default function Editor() {
         Modal(this, true);
       });
     });
-  };
+  };  
 
-  
-
+  // Add new #editor / cartoon page
   $(".add-page").click(function () {
     $("#editor").append(`
       <div class="editor-container" id="editor-${id}">
@@ -77,16 +75,33 @@ export default function Editor() {
     refresh();
   });
 
+  // Remove "add content" element to clear the #editor
   const addElements = (editorId) => {
     $(`#${editorId} .add-content`).remove();
     inputBoxs(editorId);
   };
 
+  // Page zoom by input box
   $("#page-zoom").change(function (e) {
     e.preventDefault();
-    let value = parseInt(e.target.value);
-    $("#editor").css("zoom", `${value}%`);
+    initialZoom = parseInt(e.target.value);
+    editor.style.zoom = `${initialZoom}%`;
+  });
+ 
+  // Page zoom by wheel
+  editor.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    if( event.deltaY < 0 && initialZoom < 150 ) {
+      initialZoom += 1;
+      editor.style.zoom = `${initialZoom}%`;
+      $("#page-zoom").attr("value", initialZoom);
+    } else if( event.deltaY > 0 && initialZoom > 30 ) {
+      initialZoom -= 1;
+      editor.style.zoom = `${initialZoom}%`;
+      $("#page-zoom").attr("value", initialZoom);
+    }
   });
 
   refresh();
 }
+
