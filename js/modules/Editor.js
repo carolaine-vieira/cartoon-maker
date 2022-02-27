@@ -16,7 +16,7 @@ export default function Editor() {
     });
   };
 
-  const inputBoxs = (editorParent) => {    
+  const insertBoxs = (editorParent) => {    
     const editor = document.querySelector(`#${editorParent}`); 
     editor.innerHTML = `
       <div id="comic">
@@ -45,7 +45,7 @@ export default function Editor() {
     });
   };  
 
-  // Add new #editor / cartoon page
+  // Add new #editor / cartoon page and add link
   $(".add-page").click(function () {
     $("#editor").append(`
       <div class="editor-container" id="editor-${id}">
@@ -78,7 +78,7 @@ export default function Editor() {
   // Remove "add content" element to clear the #editor
   const addElements = (editorId) => {
     $(`#${editorId} .add-content`).remove();
-    inputBoxs(editorId);
+    insertBoxs(editorId);
   };
 
   // Page zoom by input box
