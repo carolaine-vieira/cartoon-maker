@@ -3,12 +3,13 @@ import Modal from "./Modal.js";
 export default function Editor() {
   let id = 2;
 
+  $(".tt").hide();
+
   const refresh = () => {
     const editors = document.querySelectorAll(".editor-container");
 
     editors.forEach((editor) => {
       const editorId = $(editor).attr("id");
-
       const addLink = document.querySelector(`#${editorId} .add-elements`);
       $(addLink).click(function () {
         addElements(editorId);
@@ -39,10 +40,7 @@ export default function Editor() {
 
     boxs = document.querySelectorAll(`#${editorParent} .box`);
     boxs.forEach((box, index) => {
-      $(box).addClass(`box-${index}`);
-    });
-
-    boxs.forEach((box) => {
+      box.classList.add(`box-${index}`);
       box.addEventListener("click", function () {
         $(".box").removeClass("editing");        
         Modal(this);
@@ -59,7 +57,7 @@ export default function Editor() {
     $("body").removeClass("onprint");
   };
 
-  $("#add-page").click(function (e) {
+  $("#add-page").click(function () {
     $("#editor").append(`
       <div class="editor-container" id="editor-${id}">
         <span class="editor-label" id="editor-label-${id}">Page ${id}</span>
@@ -82,12 +80,9 @@ export default function Editor() {
       `);
     }
 
-    $("aside ul#pages-available").append(
-      `<li><a href="#editor-${id}">Page ${id}</a></li>`
-    );
+    $("aside ul#pages-available").append(`<li><a href="#editor-${id}">Page ${id}</a></li>`);
 
     id++;
-
     refresh();
   });
 
@@ -98,8 +93,17 @@ export default function Editor() {
 
   $("#page-zoom").change(function (e) {
     e.preventDefault();
-    let value = e.target.value;
+    let value = parseInt(e.target.value);
+    console.log(typeof value);
     $("#editor").css("zoom", `${value}%`);
+
+    if( value >= 85 ) {
+      $("#mm").hide();
+      $(".tt").show();
+    } else if ( value < 85 ) {
+      $("#mm").show();
+      $(".tt").hide();
+    }
   });
 
   refresh();

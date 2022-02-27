@@ -1,22 +1,12 @@
 export default function Modal(box) {
-  let editingMode = false;
-  const editors = document.querySelectorAll(".editor-container");
-  $(box).addClass("editing");
+  box.classList.add("editing");
+  const editors = document.querySelectorAll(".editor-container");  
   let imageIdCounter = 0;
 
   const modalLinks = [
-    {
-      title: "Change Background",
-      id: "background",
-    },
-    {
-      title: "Add Image",
-      id: "image",
-    },
-    {
-      title: "Add Baloon",
-      id: "baloon",
-    },
+    { title: "Change Background", id: "background"},
+    { title: "Add Image", id: "image" },
+    { title: "Add Baloon", id: "baloon"}
   ];
 
   const insertModalLinks = () => {
@@ -32,28 +22,34 @@ export default function Modal(box) {
 
   const insertObjectOptions = () => {
     $(".object-editable a.object-options").remove();
-    $(".object-editable").append(
-      `<a class="object-options" title="Delete"><span class="fas fa-trash-alt"></span> Delete</a>`
-    );
+    $(".object-editable").append(`
+      <a class="object-options" title="Delete">
+        <span class="fas fa-trash-alt"></span> Delete
+      </a>
+    `);
     deleteObject();
   };
 
   const deleteObject = () => {
-    let objects;
-    objects = document.querySelectorAll(".object-options");
+    const objects = document.querySelectorAll(".object-options");
     objects.forEach((object) => {
-      $(object).click(() => {
+      object.addEventListener("click", () => {
         object.parentNode.remove();
       });
+    });
+  };
+
+  const turnDraggable = () => {
+    $(".ui-widget-content").draggable({
+      containment: "parent",
     });
   };
 
   $("#ipt-add-background").change(function insertObjects(e) {
     e.stopImmediatePropagation();
 
-    let image = $(".editing");
-    let imageURI = null;
-    imageURI = URL.createObjectURL(e.target.files[0]);
+    const image = $(".editing");
+    const imageURI = URL.createObjectURL(e.target.files[0]);
 
     $(image).css({
       background: `#222 url("${imageURI}")`,
@@ -66,33 +62,29 @@ export default function Modal(box) {
   $("#ipt-add-object").change(function insertObjects(e) {
     e.stopImmediatePropagation();
 
-    let imageURI = URL.createObjectURL(e.target.files[0]);
+    const imageURI = URL.createObjectURL(e.target.files[0]);
 
-    $(".editing").append(
-      `<div class="ui-widget-content box-image object-editable"><img src="${imageURI}" class="box-image-${imageIdCounter}" alt="Object number ${imageIdCounter}" /></div>`
-    );
+    $(".editing").append(`
+      <div class="ui-widget-content box-image object-editable">
+        <img src="${imageURI}" class="box-image-${imageIdCounter}" alt="Object number ${imageIdCounter}" />
+      </div>
+    `);
     turnDraggable();
     insertObjectOptions();
 
     imageIdCounter++;
     e.target.value = null;
-  });
-
-  const turnDraggable = () => {
-    $(".ui-widget-content").draggable({
-      containment: "parent",
-    });
-  };
+  });  
 
   $("#add-ballon").click(function (e) {
     e.stopImmediatePropagation();
 
-    $(".editing").append(
-      `<div class="ballon ui-widget-content object-editable">
+    $(".editing").append(`
+      <div class="ballon ui-widget-content object-editable">
         <div class="ballon-triangle"></div>
         <textarea class="ballon-textarea" placeholder="Enter a text" value="Write a text"></textarea>
-      </div>`
-    );
+      </div>
+    `);
     turnDraggable();
     insertObjectOptions();
   });
@@ -106,7 +98,7 @@ export default function Modal(box) {
   const closeModal = () => {
     $("#editor").css("margin-right", "0%");
     $("#main #modal").hide();
-    $(box).removeClass("editing");
+    box.classList.remove("editing");
   };
 
   $("#modal a.close-button").click(function (e) {

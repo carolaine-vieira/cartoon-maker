@@ -28,7 +28,6 @@ body
     min-height: 100vh
     width: 100%
     flex-wrap: wrap
-    justify-content: flex-end
 
     aside
       flex: 0 0 20%
@@ -135,7 +134,7 @@ body
       border: 6px solid #222
 
     #editor
-      flex: 1
+      flex: 1 0 60%
       display: flex
       flex-direction: column
       align-content: space-around
@@ -143,8 +142,6 @@ body
       zoom: 67%
 
       .editor-container
-        // flex: 0 0 159%
-        // width: calc(100% - 6%)
         width: 24.5cm !important //tamanho no a4
         height: 30.13cm !important
         background: #fff
@@ -240,7 +237,7 @@ body
                   overflow-y: hidden
 
                 .ballon-textarea:focus
-                  resize: vertical
+                  resize: both
                   overflow-y: auto
 
               .ballon:hover .ballon-textarea

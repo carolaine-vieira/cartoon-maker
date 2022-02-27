@@ -9,7 +9,7 @@ html(lang="en")
     title Cartoon Creator
   body 
     #main 
-      aside.left 
+      aside.left#modal 
         span.category-title Add
         ul#add-elements-link          
           li
@@ -28,6 +28,26 @@ html(lang="en")
             span(class="fas fa-search-plus" title="Page zoom") 
             input(type="number" min="30" max="100" id="page-zoom" value="67")
 
+        .tt
+          span.category-title Cartoon Settings
+            ul 
+              li 
+                input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-background")
+                label(for="ipt-add-background" style="cursor: pointer;") 
+                  span(class="fas fa-image") 
+                  span(class="link-label") Insert Background
+
+              li
+                input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-object")
+                label(for="ipt-add-object" style="cursor: pointer;") 
+                  span(class="fas fa-skiing") 
+                  span(class="link-label") Insert Object
+
+              li
+                a(id="add-ballon") 
+                  span(class="fas fa-comment-dots") 
+                  span(class="link-label") Add Ballon
+
       
       #editor 
         .editor-container#editor-1
@@ -35,7 +55,7 @@ html(lang="en")
           .add-content.add-content-1 
             a.add-elements Add content
 
-      aside#modal
+      aside#mm
         span.category-title Cartoon Settings
         ul 
           li 
