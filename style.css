@@ -29,6 +29,11 @@ body .ui-widget-content {
   cursor: move;
 }
 
+body .denied {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
 body #main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,6 +144,14 @@ body #main aside a.close-button {
   z-index: 9;
 }
 
+body #main aside .plus-options {
+  margin: 30px 0 0;
+}
+
+body #main aside .plus-options a {
+  display: inline-block;
+}
+
 body #main aside.left {
   left: 0;
 }
@@ -190,7 +203,8 @@ body #main #editor {
       align-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  zoom: 67%;
+  zoom: 80%;
+  overflow: hidden;
 }
 
 body #main #editor .editor-container {

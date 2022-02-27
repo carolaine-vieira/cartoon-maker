@@ -18,9 +18,7 @@ export default function Editor() {
   };
 
   const inputBoxs = (editorParent) => {    
-    let boxs = [];
-    const editor = document.querySelector(`#${editorParent}`);  
-
+    const editor = document.querySelector(`#${editorParent}`); 
     editor.innerHTML = `
       <div id="comic">
         <div class="comic-container">
@@ -38,26 +36,19 @@ export default function Editor() {
       </div>
     `;
 
-    boxs = document.querySelectorAll(`#${editorParent} .box`);
+    const boxs = document.querySelectorAll(`#${editorParent} .box`);
     boxs.forEach((box, index) => {
       box.classList.add(`box-${index}`);
       box.addEventListener("click", function () {
         $(".box").removeClass("editing");        
-        Modal(this);
+        Modal(this, true);
       });
     });
   };
 
-  $("#export").click(() => {
-    $("body").addClass("onprint");
-    window.print();
-  });
+  
 
-  window.onafterprint = () => {
-    $("body").removeClass("onprint");
-  };
-
-  $("#add-page").click(function () {
+  $(".add-page").click(function () {
     $("#editor").append(`
       <div class="editor-container" id="editor-${id}">
         <span class="editor-label" id="editor-label-${id}">Page ${id}</span>
@@ -94,16 +85,7 @@ export default function Editor() {
   $("#page-zoom").change(function (e) {
     e.preventDefault();
     let value = parseInt(e.target.value);
-    console.log(typeof value);
     $("#editor").css("zoom", `${value}%`);
-
-    if( value >= 85 ) {
-      $("#mm").hide();
-      $(".tt").show();
-    } else if ( value < 85 ) {
-      $("#mm").show();
-      $(".tt").hide();
-    }
   });
 
   refresh();

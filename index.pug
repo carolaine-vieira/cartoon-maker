@@ -10,15 +10,10 @@ html(lang="en")
   body 
     #main 
       aside.left#modal 
-        span.category-title Add
-        ul#add-elements-link          
-          li
-            a#add-page Page
-
         span.category-title Export as
         ul#export-links        
           li
-            a#export Print
+            a(id="export" class="editable") Print
           //- li
           //-   a#export Image
 
@@ -26,54 +21,38 @@ html(lang="en")
         ul#export-links        
           li
             span(class="fas fa-search-plus" title="Page zoom") 
-            input(type="number" min="30" max="100" id="page-zoom" value="67")
+            input(type="number" min="30" max="120" id="page-zoom" value="80")
 
-        .tt
-          span.category-title Cartoon Settings
-            ul 
-              li 
-                input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-background")
-                label(for="ipt-add-background" style="cursor: pointer;") 
-                  span(class="fas fa-image") 
-                  span(class="link-label") Insert Background
+        .plus-options
+          span.category-title Cartoon Options
+          ul 
+            li
+              a(class="add-page editable")
+                span(class="fas fa-skiing") 
+                span(class="link-label") Add Page
 
-              li
-                input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-object")
-                label(for="ipt-add-object" style="cursor: pointer;") 
-                  span(class="fas fa-skiing") 
-                  span(class="link-label") Insert Object
+            li 
+              input(type="file" accept="image/*" name="image" class="editable ipt-right-aside" id="ipt-add-background")
+              label(for="ipt-add-background" style="cursor: pointer;" class="editable") 
+                span(class="fas fa-image") 
+                span(class="link-label") Insert Background
 
-              li
-                a(id="add-ballon") 
-                  span(class="fas fa-comment-dots") 
-                  span(class="link-label") Add Ballon
+            li
+              input(type="file" accept="image/*" name="image" class="editable ipt-right-aside" id="ipt-add-object")
+              label(for="ipt-add-object" style="cursor: pointer;" class="editable") 
+                span(class="fas fa-skiing") 
+                span(class="link-label") Insert Object
 
+            li
+              a(id="add-ballon" class="editable") 
+                span(class="fas fa-comment-dots") 
+                span(class="link-label") Add Ballon            
       
       #editor 
         .editor-container#editor-1
           span.editor-label First Page &mdash; Welcome
           .add-content.add-content-1 
             a.add-elements Add content
-
-      aside#mm
-        span.category-title Cartoon Settings
-        ul 
-          li 
-            input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-background")
-            label(for="ipt-add-background" style="cursor: pointer;") 
-              span(class="fas fa-image") 
-              span(class="link-label") Insert Background
-
-          li
-            input(type="file" accept="image/*" name="image" class="ipt-right-aside" id="ipt-add-object")
-            label(for="ipt-add-object" style="cursor: pointer;") 
-              span(class="fas fa-skiing") 
-              span(class="link-label") Insert Object
-
-          li
-            a(id="add-ballon") 
-              span(class="fas fa-comment-dots") 
-              span(class="link-label") Add Ballon
         
   script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
   script(type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")

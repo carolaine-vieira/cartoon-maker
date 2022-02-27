@@ -1,15 +1,33 @@
-export default function Modal(box) {
-  box.classList.add("editing");
-  const editors = document.querySelectorAll(".editor-container");  
-  let imageIdCounter = 0;
+export default function Modal(box, editing = false) {
+  const init = () => {
+    box.classList.add("editing");
+    const editors = document.querySelectorAll(".editor-container");  
+    let imageIdCounter = 0, editingMode = false;
 
-  const modalLinks = [
-    { title: "Change Background", id: "background"},
-    { title: "Add Image", id: "image" },
-    { title: "Add Baloon", id: "baloon"}
-  ];
+    const elements = document.querySelectorAll(".editable");
 
+    elements.forEach(element  => {
+      element.classList.remove("denied");
+      element.removeAttribute("disabled");
+    });
+  }
+  init();
+
+  $("#export").click(() => {
+    $("body").addClass("onprint");
+    window.print();
+  });
+
+  window.onafterprint = () => {
+    $("body").removeClass("onprint");
+  };
+  
   const insertModalLinks = () => {
+    const modalLinks = [
+      { title: "Change Background", id: "background"},
+      { title: "Add Image", id: "image" },
+      { title: "Add Baloon", id: "baloon"}
+    ];
     editingMode = true;
     editors.forEach(editor => editor.classList.add("editing-mode"));
 
@@ -27,17 +45,18 @@ export default function Modal(box) {
         <span class="fas fa-trash-alt"></span> Delete
       </a>
     `);
+
+    const deleteObject = () => {
+      const objects = document.querySelectorAll(".object-options");
+      objects.forEach((object) => {
+        object.addEventListener("click", () => {
+          object.parentNode.remove();
+        });
+      });
+    };
     deleteObject();
   };
 
-  const deleteObject = () => {
-    const objects = document.querySelectorAll(".object-options");
-    objects.forEach((object) => {
-      object.addEventListener("click", () => {
-        object.parentNode.remove();
-      });
-    });
-  };
 
   const turnDraggable = () => {
     $(".ui-widget-content").draggable({
@@ -47,6 +66,10 @@ export default function Modal(box) {
 
   $("#ipt-add-background").change(function insertObjects(e) {
     e.stopImmediatePropagation();
+    const boxs = document.querySelectorAll(".box");
+    boxs.forEach(box => {
+      box.classList.contains("editing") ? console.log("sim") : console.log("não");
+    })
 
     const image = $(".editing");
     const imageURI = URL.createObjectURL(e.target.files[0]);
