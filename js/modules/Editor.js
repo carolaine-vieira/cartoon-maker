@@ -1,7 +1,7 @@
 import Modal from "./Modal.js";
 
 export default function Editor() {
-  let id = 2, initialZoom = 80;
+  let id = 2, pageZoom = 80;
   const editor = document.querySelector("#editor");
 
   const refresh = () => {
@@ -84,21 +84,21 @@ export default function Editor() {
   // Page zoom by input box
   $("#page-zoom").change(function (e) {
     e.preventDefault();
-    initialZoom = parseInt(e.target.value);
-    editor.style.zoom = `${initialZoom}%`;
+    pageZoom = parseInt(e.target.value);
+    editor.style.zoom = `${pageZoom}%`;
   });
  
   // Page zoom by wheel
   editor.addEventListener("wheel", (event) => {
     event.preventDefault();
-    if( event.deltaY < 0 && initialZoom < 150 ) {
-      initialZoom += 1;
-      editor.style.zoom = `${initialZoom}%`;
-      $("#page-zoom").attr("value", initialZoom);
-    } else if( event.deltaY > 0 && initialZoom > 30 ) {
-      initialZoom -= 1;
-      editor.style.zoom = `${initialZoom}%`;
-      $("#page-zoom").attr("value", initialZoom);
+    if( event.deltaY < 0 && pageZoom < 150 ) {
+      pageZoom += 1;
+      editor.style.zoom = `${pageZoom}%`;
+      $("#page-zoom").attr("value", pageZoom);
+    } else if( event.deltaY > 0 && pageZoom > 30 ) {
+      pageZoom -= 1;
+      editor.style.zoom = `${pageZoom}%`;
+      $("#page-zoom").attr("value", pageZoom);
     }
   });
 
